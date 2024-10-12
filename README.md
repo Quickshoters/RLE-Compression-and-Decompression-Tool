@@ -13,3 +13,4 @@ How to use:
 
 4): The second file is to unpack numbers that were not serialized by this script, when you only have rle encoded numbers and works the same way as the main file, by means of boxes and buttons
 
+![ejemplo](/Screenshot_1.png)
