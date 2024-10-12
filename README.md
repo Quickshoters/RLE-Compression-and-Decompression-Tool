@@ -1,6 +1,6 @@
-RLE Compression and Decompression Tool
-Very easy to use and does not require installation
+**RLE Compression and Decompression Tool**
 
+Very easy to use and does not require installation
 How to use:
 
 
