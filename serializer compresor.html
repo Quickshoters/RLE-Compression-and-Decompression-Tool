@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RLE Compression and Decompression Tool</title>
+</head>
+<body>
+    <h1>RLE Compression and Decompression Tool</h1>
+    
+    <!-- Cuadro de texto para ingresar los números serializados -->
+    <textarea id="inputNumbers" rows="5" cols="50" placeholder="Enter serialized numbers..."></textarea>
+    <br>
+    
+    <!-- Botón para comprimir -->
+    <button onclick="compressNumbers()">Compress</button>
+
+    <h3>Compressed Output:</h3>
+    <p id="compressedOutput"></p>
+
+    <!-- Botón para descomprimir -->
+    <button onclick="decompressNumbers()">Decompress</button>
+
+    <h3>Decompressed Output:</h3>
+    <p id="decompressedOutput"></p>
+
+    <script>
+        // Función para comprimir los números
+        function compressNumbers() {
+            const input = document.getElementById('inputNumbers').value.trim().split(' ').map(Number);
+            let compressed = [];
+            let i = 0;
+            while (i < input.length) {
+                let count = 1;
+                while (i + 1 < input.length && input[i] === input[i + 1]) {
+                    count++;
+                    i++;
+                }
+                compressed.push(count > 1 ? input[i] + 'x' + count : input[i]);
+                i++;
+            }
+            document.getElementById('compressedOutput').innerText = compressed.join(' ');
+        }
+
+        // Función para descomprimir el resultado comprimido
+        function decompressNumbers() {
+            const compressedInput = document.getElementById('compressedOutput').innerText.trim().split(' ');
+            let decompressed = [];
+            compressedInput.forEach(item => {
+                let parts = item.split('x');
+                let number = parseInt(parts[0]);
+                let count = parts.length > 1 ? parseInt(parts[1]) : 1;
+                for (let i = 0; i < count; i++) {
+                    decompressed.push(number);
+                }
+            });
+            document.getElementById('decompressedOutput').innerText = decompressed.join(' ');
+        }
+    </script>
+
+    <!-- Mensaje de ayuda -->
+    <h3>Example Input Format:</h3>
+    <p>Enter serialized numbers in the format: <code>1 2 2 3 3 3</code> (where numbers can be compressed to <code>1 2x2 3x3</code>).</p>
+	<p>This code is made by QuickShoters(Chile).</p>
+</body>
+</html>

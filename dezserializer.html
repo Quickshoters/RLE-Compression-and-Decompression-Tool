@@ -1,0 +1,42 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RLE Decompression Tool</title>
+</head>
+<body>
+    <h1>RLE Decompression Tool</h1>
+    
+    <!-- Cuadro de texto para ingresar los números comprimidos -->
+    <textarea id="inputCompressed" rows="5" cols="50" placeholder="Enter compressed numbers..."></textarea>
+    <br>
+    
+    <!-- Botón para descomprimir -->
+    <button onclick="decompressNumbers()">Decompress</button>
+
+    <h3>Decompressed Output:</h3>
+    <p id="decompressedOutput"></p>
+
+    <script>
+        // Función para descomprimir el resultado comprimido
+        function decompressNumbers() {
+            const compressedInput = document.getElementById('inputCompressed').value.trim().split(' ');
+            let decompressed = [];
+            compressedInput.forEach(item => {
+                let parts = item.split('x');
+                let number = parseInt(parts[0]);
+                let count = parts.length > 1 ? parseInt(parts[1]) : 1;
+                for (let i = 0; i < count; i++) {
+                    decompressed.push(number);
+                }
+            });
+            document.getElementById('decompressedOutput').innerText = decompressed.join(' ');
+        }
+    </script>
+
+    <!-- Mensaje de ayuda -->
+    <h3>Example Input Format:</h3>
+    <p>Enter compressed numbers in the format: <code>1 2x2 3x3</code> (which represents: <code>1 2 2 3 3 3</code>).</p>
+</body>
+</html>
