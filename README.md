@@ -13,5 +13,6 @@ How to use:
 
 4): The second file is to unpack numbers that were not serialized by this script, when you only have rle encoded numbers and works the same way as the main file, by means of boxes and buttons
 
-![ejemplo](https://github.com/Quickshoters/RLE-Compression-and-Decompression-Tool/Screenshot_1.png)
+
+![Screenshot_1](https://github.com/user-attachments/assets/bd0e42a5-f929-45d4-aa28-b8224bd4f915)
 
